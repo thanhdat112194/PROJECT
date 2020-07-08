@@ -1,0 +1,9 @@
+/***** Customizer Custom CSS *****/
+
+.zeko-upgrade-thumb img { border: 1px solid #ccc; }
+.zeko-upgrade-title { color: #000; text-transform: uppercase; }
+.zeko-upgrade-features { list-style: disc; margin: 0 15px; }
+.zeko-button .button { min-width: 220px; text-align: center; }
+.zeko-upgrade-button .button { color: #fff; background: #008ec2; border-color: #008ec2; }
+.customize-pane-parent #accordion-panel-zeko_theme_options .accordion-section-title, #accordion-section-zeko_magazine_lite_upgrade .accordion-section-title { color: #fff; background: #008ec2; border-left: 4px solid #bfdeec; }
+.rtl .customize-pane-parent #accordion-panel-zeko_theme_options .accordion-section-title, .rtl #accordion-section-zeko_magazine_lite_upgrade .accordion-section-title { border-right: 4px solid #bfdeec; border-left: none; }

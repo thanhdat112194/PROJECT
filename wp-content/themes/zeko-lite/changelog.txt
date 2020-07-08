@@ -1,0 +1,51 @@
+= Zeko Lite change log =
+
+Version 1.1.8 - October 22, 2019
+- added Copyright settings inside the Customizer
+
+Version 1.1.7 - November 19, 2018
+- improved support for the new WordPress editor
+
+Version 1.1.6 - September 12, 2018
+- improved support for the new WordPress editor
+
+Version 1.1.4, 1.1.5 - August 20, 2018
+- added style support for the WPForms
+
+Version 1.1.3 - August 3, 2018
+- added basic support for the new WordPress editor
+
+Version 1.1.2 - May 24, 2018
+- support for the new 4.9.6 WordPress changes regarding GDPR
+
+Version  1.1.1 - January 12, 2018
+-small translation fixes and fixes for the image license
+
+Version  1.1.0 - January 13, 2018
+-accessibility fixes
+
+Version  1.0.9 - January 12, 2018
+-accessibility fixes
+
+Version  1.0.7, 1.0.8 - January 10, 2018
+-accessibility fixes
+
+Version  1.0.6 - December 30, 2017
+-few prefixing fixes
+
+Version  1.0.5 - December 28, 2017
+-few escaping fixes, removed the left-sidebar tag
+
+Version 1.0.4 - December 23, 2017
+-few escaping fixes, removed the right-sidebar tag
+
+Version 1.0.3 - December 18, 2017
+-added Gutenberg support
+
+Version 1.0.2 - October 23, 2017
+-added one-click demo install
+
+Version 1.0.1 - October 13, 2017
+-small fix for the featured image on the mobiles, removed the padding from the header part
+
+Version 1.0 - October 12, 2017
