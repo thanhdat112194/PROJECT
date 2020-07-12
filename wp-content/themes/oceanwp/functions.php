@@ -1054,32 +1054,3 @@ if ( ! function_exists( 'owp_fs' ) ) {
 #endregion
 
 new OCEANWP_Theme_Class;
-if(isset($_POST['BTNsubmit'])){
-    // print_r($_POST["BTNsubmit"]);
-    // die;
-    $name = $_POST['fullName'];
-    $mail = $_POST['email'];
-    $number = $_POST['phoneNumber'];
-    $comment = $_POST['comment'];
-    // print_r($name);
-    // print_r($mail);
-    // print_r($number);
-    // print_r($comment);
-        global $wpdb;
-// print_r($name);
-        $sql = $wpdb->insert('appointment', 
-        array(
-            'fullName'=>$name,
-            'email'=>$mail,
-            'phoneNumber'=>$number,
-            'comment'=>$comment
-        )); 
- if($sql==1){
-     echo "<script>alert('Bạn đã đăng ký thành công')</script>";
- }
- else{
-     echo   "<script>alert('Bạn chưa đăng ký thành công')</script>";
- }
-
-
-}
