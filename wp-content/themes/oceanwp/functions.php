@@ -436,6 +436,7 @@ final class OCEANWP_Theme_Class {
 
 		// Main Style.css File.
 		wp_enqueue_style( 'oceanwp-style', $dir . 'style.min.css', false, $theme_version );
+		
 
 		// Register hamburgers buttons to easily use them.
 		wp_register_style( 'oceanwp-hamburgers', $dir . 'third/hamburgers/hamburgers.min.css', false, $theme_version );
@@ -1054,3 +1055,11 @@ if ( ! function_exists( 'owp_fs' ) ) {
 #endregion
 
 new OCEANWP_Theme_Class;
+// function page_wp_enqueeu_style(){
+// 	wp_enqueue_stye('custom', get_template_directory_uri());
+// }
+// add_action('wp_enqueue_scripts','page_wp_enqueeu_style');
+function page_style(){
+	wp_enqueue_style('main',get_stylesheet_uri());
+}
+add_action('wp_enqueue_scripts','page_style');

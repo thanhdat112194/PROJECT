@@ -12,6 +12,8 @@
 <head>
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
 	<link rel="profile" href="https://gmpg.org/xfn/11">
+	<!-- <link rel="stylesheet" href="<?php echo get_template_directory_uri();?>/assets/css/custom.css" type="text/css"> -->
+
 
 	<?php wp_head(); ?>
 </head>
