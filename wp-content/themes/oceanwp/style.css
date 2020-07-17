@@ -28,6 +28,7 @@
  */
 .a{
     background-image: url(./assets/img/2.jpg);
+    /* background-color: chartreuse; */
     display: no-repeat;
     width:2000px;
     height:700px;
@@ -41,5 +42,8 @@
     font-size:20px;
     /* margin: 0 auto; */
     padding: 20px; 
-    background-color: white;
+    background-color:black;
+}
+.b label{
+    text-align: center;
 }

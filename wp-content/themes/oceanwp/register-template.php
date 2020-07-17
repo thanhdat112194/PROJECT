@@ -4,7 +4,7 @@
 */ 
  get_header();
 ?>
-
+<!-- TAO HO SO -->
  
 <div class="a"
 style="
@@ -19,44 +19,41 @@ background-repeat: no-repeat, repeat;
     "
 
 >
-    <form method="post">
+<!-- enctype="multipart/form-data" -->
+    <form method="post" >
         
-        <div class="form-group">
-        <label for="fullName">Họ và tên</label>
-        <input type="text" class="form-control" name="fullName" id="fullName">
+        <div class="form-group" class="b">
+            <label for="fullName">Họ và tên</label>
+            <input type="text" class="form-control" name="fullName" id="fullName">
         </div>
         <div class="form-group">
-        <label for="age">Tuổi</label>
-        <input type="text" class="form-control" name="age" id="age">
+            <label for="age">Tuổi</label>
+            <input type="text" class="form-control" name="age" id="age">
         </div>
         <div class="form-group">
-        <label for="email">Email</label>
-        <input type="text" class="form-control" name="email" id="email">
+            <label for="email">Email</label>
+            <input type="text" class="form-control" name="email" id="email">
         </div>
         <div class="form-group">
-        <label for="phoneNumber">Số điện thoại</label>
-        <input type="text" class="form-control"  name="phoneNumber" id="phoneNumber">
+            <label for="phoneNumber">Số điện thoại</label>
+            <input type="text" class="form-control"  name="phoneNumber" id="phoneNumber">
         </div>
         <div class="form-group">
-        <label for="meeting-time">Chọn thời gian cuộc hẹn</label>
-        <input type="datetime-local" name="metting-time" class="form-control" id="metting-time"
+            <label for="meeting-time">Chọn thời gian cuộc hẹn</label>
+        <input type="text" value="
+        <?php
+            global $wpdb;
+            $result= $wpdb->get_results("Select*from setAppointment");
+            foreach($result as $db){?>
+                <?php echo $db->time;?>
+           <?php }?>
         
-        min="2019-07-01T13:00" max="2019-07-30T16:00"
-
-        value="<?php
         
-        
-        
-        ?>"
-        
-        >
+        ">
         </div>
         <div class="form-group">
-        <label for="file">Hồ sơ của bạn(Tệp đính kèm)</label><br>
-        <input type="file" class="form-control"  name="file" id="file"
-        
-        accept=".doc,.docx,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
-        >
+            <label for="file">Hồ sơ của bạn(Tệp đính kèm)</label><br>
+            <input type="file" class="form-control"  name="file1" id="file">
         </div>
         
         <div class="form-group">
@@ -72,19 +69,46 @@ background-repeat: no-repeat, repeat;
     
 </div>
 <?php
+
+ // if(empty($_FILES["file"]["name"])){
+    //     $target_dir= "/assets/img/";
+    //     $target_file = $target_dir.basename($_FILES["file"]["name"]);
+    //     // $file_type=pathinto($target_file,PATHINFO_EXTENSION);//check real picture
+    //     $allowTypes=array('jpg','png','pdf','jpeg','gif');
+    //     if(in_array($allowTypes))
+    //     {
+    //         if(move_uploaded_file($_FILES["file"]["tmp_name"],$target_file))
+    //         {
+               
+    //         }
+    //         else {
+    //             echo "The file must be picture";
+    //         }
+    //     }
+    // } 
+    // $target_dir= "assets/img/";
+    // $target_file = $target_dir.basename($_FILES["file"]["name"]);
+    // move_uploaded_file($_FILES["file"]["tmp_name"],$target_file);
+
+
+    
 if(isset($_POST['BTNsubmit'])){
-    // print_r($_POST["BTNsubmit"]);
-    // die;
+   
+    
     $name = $_POST['fullName'];
     $age = $_POST['age'];
     $mail = $_POST['email'];
     $number = $_POST['phoneNumber'];
     $timemeeting = $_POST['metting-time'];
-    $file = $_POST['file'];
+    $file = $_POST['file1'];
+
     $comment = $_POST['comment'];
     // print_r($name);
     // print_r($mail);
+    // print_r($age);
     // print_r($number);
+    // print_r($timemeeting);
+    print_r($file);
     // print_r($comment);
         global $wpdb;
 // print_r($name);
@@ -98,15 +122,13 @@ if(isset($_POST['BTNsubmit'])){
             'file'=> $file,
             'comment'=>$comment
         )); 
- if($sql==1){
+ if($sql==1 || !empty($_FILES["files1"]["name"])){
      echo "<script>alert('Bạn đã đăng ký thành công')</script>";
      header('Location: http://localhost/Royalfashion/wordpress/dangkythanhcong/');
  }
  else{
      echo   "<script>alert('Bạn chưa đăng ký thành công')</script>";
  }
-
- 
 }
 ?>
 <?php

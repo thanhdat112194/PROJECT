@@ -1,13 +1,35 @@
 <?php
 
+
 /*Template Name:Display appointment */
 get_header();
 ?>
+<!-- QUAN-LY-PHONG VAN -->
+<div class="CRappoint" style="
+text-align: center;
+padding-bottom: 20px;
+border: 2px solid black;
+font-size:40px;
 
 
+" >
+<div class="container" >
+    <!-- show edit time appointment -->
+    <div class="form-group">
+    <form action="" method="POST">
+        <label for="Meeting" style="font-size:30px">Tạo thời gian phỏng vấn </label>
+        <br>
+        <input type="datetime-local" name="meeting-time" class="form-control" id="meeting-time"
+        min="2019-07-01T11:00" max="2019-07-30T15:00">
+        <br>
+        <input type="submit" name="submit">
+        </form>    
+    </div>
+
+</div>
+</div>
 <div class="container">
-
-    <div>
+    <!-- show time meeting appoinment -->
         <div class="content-area">
 
             <table boder="1">
@@ -39,21 +61,32 @@ get_header();
 
                         <td><?php  echo $print->meetingtime;?></td>
 
-                        <td><?php  echo $print->CV;?></td>
-                        <td><?php  echo $print->comment;?></td>
+                        <td><a href="download.php?id=<?php echo $print->file?>" ><?php  echo $print->file?></a></td>
+                        	
 
+                        <td><?php  echo $print->comment;?></td>
+                        <!--  -->
+                      
                     </tr>
                   <?php  } ?>
 
 
             </table>
         </div>
-
-
-    </div>
-
-
-
-
 </div>
-<?php get_footer();?>
+
+<?php include 'controlapp.php';?>
+
+
+<?php
+
+
+get_footer();?>
+<!-- 
+<td><?php echo "<a target='_blank'>$print->$file</a>";?></td>  -->
+ <!-- <td><?php  
+                        echo "<a target='_blank' href='download.php?id=<?php $print->file?>'>$print->file</a>";?>
+                        
+                        </td> -->
+                        <!-- <a href="download.php?file=SampleFile.pdf" target="_new">Download File</a> -->
+                       
