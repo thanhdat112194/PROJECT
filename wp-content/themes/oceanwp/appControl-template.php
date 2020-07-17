@@ -17,10 +17,10 @@ font-size:40px;
     <!-- show edit time appointment -->
     <div class="form-group">
     <form action="" method="POST">
-        <label for="Meeting" style="font-size:30px">Tạo thời gian phỏng vấn </label>
+        <label for="date" style="font-size:30px">Tạo Ngày phỏng vấn </label>
         <br>
-        <input type="datetime-local" name="meeting-time" class="form-control" id="meeting-time"
-        min="2019-07-01T11:00" max="2019-07-30T15:00">
+        <input type="date" name="meeting-time" class="form-control" id="meeting-time"
+        min="2019-07-01" max="2019-07-30">
         <br>
         <input type="submit" name="submit">
         </form>    

@@ -13,7 +13,7 @@ padding: 10px;
 background-repeat: no-repeat, repeat;
 "
 >
-<div class="container" style="
+<div class="container c" style="
      
    
     "
@@ -37,21 +37,51 @@ background-repeat: no-repeat, repeat;
         <div class="form-group">
             <label for="phoneNumber">Số điện thoại</label>
             <input type="text" class="form-control"  name="phoneNumber" id="phoneNumber">
+            
         </div>
         <div class="form-group">
-            <label for="meeting-time">Chọn thời gian cuộc hẹn</label>
-        <input type="text" value="
-        <?php
-            global $wpdb;
-            $result= $wpdb->get_results("Select*from setAppointment");
-            foreach($result as $db){?>
-                <?php echo $db->time;?>
-           <?php }?>
-        
+            <label for="metting-time">Chọn ngày phỏng vấn</label>
+            <select name="metting-time" id="metting-time">
+                           
+                <?php
+              global $wpdb;
+              $result = $wpdb->get_results("Select*from setAppointment where id>=3");
+                  foreach ($result as $db){
+                     echo "<option value='$db->date'>$db->date</option>";
+                  }
+                 ?>
+                
+            </select>
+            
+        </div>
+        <div class="form-group"  style="
+     
         
         ">
+            <label for="metting-time">Chọn thời gian phỏng vấn</label><br>
+            
+            <select name="metting-time" id="metting-time">
+                           <?php
+                global $wpdb;
+              $result = $wpdb->get_results("Select*from setAppointment where id=1 || id =2");
+                  foreach ($result as $db){
+                     echo "<option value='$db->time'>$db->time</option>";
+                  }
+                ?>
+                
+            </select>
+            <!-- <?php
+              global $wpdb;
+              $result = $wpdb->get_results("Select*from setAppointment where id=1 || id =2");
+                  foreach ($result as $db){
+                     echo "<button value='$db->time'>$db->time</button>";
+                  }
+            // <button  type="button" class="btn btn-success" style="">aaa</button>
+            // <button  type="button" class="btn btn-success" style="">aaa</button>
+            ?> -->
+            
         </div>
-        <div class="form-group">
+    <div class="form-group">
             <label for="file">Hồ sơ của bạn(Tệp đính kèm)</label><br>
             <input type="file" class="form-control"  name="file1" id="file">
         </div>
@@ -59,9 +89,7 @@ background-repeat: no-repeat, repeat;
         <div class="form-group">
         <label for="comment">Comment</label>
         <input type="text" class="form-control" style="height:60px;
-        text-align:left;
-
-        " name="comment" id="comment">
+        text-align:left;" name="comment" id="comment">
         </div>
         <button type="submit" name="BTNsubmit" class="btn btn-success">Đặt lịch hẹn</button>
     </form>

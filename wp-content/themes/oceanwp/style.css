@@ -31,7 +31,7 @@
     /* background-color: chartreuse; */
     display: no-repeat;
     width:2000px;
-    height:700px;
+    height:1000px;
     
 }
 .a .container{
@@ -42,8 +42,11 @@
     font-size:20px;
     /* margin: 0 auto; */
     padding: 20px; 
-    background-color:black;
+    background-color:white;
 }
 .b label{
     text-align: center;
+}
+.c {
+    background-color: blanchedalmond;
 }

@@ -1,13 +1,13 @@
 <?php
-
+// control appControl-template
 if(isset($_POST['submit'] )){
    if(!empty($_POST['meeting-time'])){
-    $time= $_POST['meeting-time'];
+    $date= $_POST['meeting-time'];
     global $wpdb;
     
     $sql = $wpdb->insert('setAppointment',
     array(
-        'time'=>$time
+        'date'=>$date
     ));
     if($sql==1 ){
         echo "<script>alert('Bạn đã tạo thành công')</script>";
@@ -20,6 +20,16 @@ if(isset($_POST['submit'] )){
 
    
 }
+// <div class="form-group">
+// <label for="meeting-time">Chọn thời gian cuộc hẹn</label>
+
+// <select name="" id="">
+//     <?php
+  
+//     while( $result= $wpdb->get_results("Select*from setAppointment")){
+//             echo "<option value='$result->time'></option>";
+//         }
+//         ?>
 
 
 ?>
