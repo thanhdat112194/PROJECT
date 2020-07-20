@@ -5,23 +5,12 @@
  get_header();
 ?>
 <!-- TAO HO SO -->
- 
-<div class="a"
-style="
+<!--  -->
+<div class="container" style="
 margin:0 auto;
 padding: 10px;
-background-repeat: no-repeat, repeat;
-"
->
-<div class="container c" style="
-     
-   
-    "
-
->
-<!-- enctype="multipart/form-data" -->
-    <form method="post" >
-        
+">
+    <form method="post" enctype="multipart/form-data" >
         <div class="form-group" class="b">
             <label for="fullName">Họ và tên</label>
             <input type="text" class="form-control" name="fullName" id="fullName">
@@ -37,12 +26,10 @@ background-repeat: no-repeat, repeat;
         <div class="form-group">
             <label for="phoneNumber">Số điện thoại</label>
             <input type="text" class="form-control"  name="phoneNumber" id="phoneNumber">
-            
         </div>
         <div class="form-group">
-            <label for="metting-time">Chọn ngày phỏng vấn</label>
-            <select name="metting-time" id="metting-time">
-                           
+            <label for="metting-date">Chọn ngày phỏng vấn</label>
+            <select name="metting-date" id="metting-date">        
                 <?php
               global $wpdb;
               $result = $wpdb->get_results("Select*from setAppointment where id>=3");
@@ -50,16 +37,10 @@ background-repeat: no-repeat, repeat;
                      echo "<option value='$db->date'>$db->date</option>";
                   }
                  ?>
-                
             </select>
-            
         </div>
-        <div class="form-group"  style="
-     
-        
-        ">
+        <div class="form-group"  style="">
             <label for="metting-time">Chọn thời gian phỏng vấn</label><br>
-            
             <select name="metting-time" id="metting-time">
                            <?php
                 global $wpdb;
@@ -68,75 +49,49 @@ background-repeat: no-repeat, repeat;
                      echo "<option value='$db->time'>$db->time</option>";
                   }
                 ?>
-                
             </select>
-            <!-- <?php
-              global $wpdb;
-              $result = $wpdb->get_results("Select*from setAppointment where id=1 || id =2");
-                  foreach ($result as $db){
-                     echo "<button value='$db->time'>$db->time</button>";
-                  }
-            // <button  type="button" class="btn btn-success" style="">aaa</button>
-            // <button  type="button" class="btn btn-success" style="">aaa</button>
-            ?> -->
-            
         </div>
-    <div class="form-group">
-            <label for="file">Hồ sơ của bạn(Tệp đính kèm)</label><br>
-            <input type="file" class="form-control"  name="file1" id="file">
+        <div class="form-group">
+            <label for="file2">Hồ sơ của bạn(Tệp đính kèm)</label><br>
+            <input type="file" class="form-control"  name="file2" id="file2">
         </div>
-        
         <div class="form-group">
         <label for="comment">Comment</label>
-        <input type="text" class="form-control" style="height:60px;
-        text-align:left;" name="comment" id="comment">
+            <input type="text" class="form-control" style="height:60px; text-align:left;"  name="comment" id="comment">
         </div>
         <button type="submit" name="BTNsubmit" class="btn btn-success">Đặt lịch hẹn</button>
     </form>
 </div>
-    
-</div>
+            
+<!-- </div> -->
 <?php
 
- // if(empty($_FILES["file"]["name"])){
-    //     $target_dir= "/assets/img/";
-    //     $target_file = $target_dir.basename($_FILES["file"]["name"]);
-    //     // $file_type=pathinto($target_file,PATHINFO_EXTENSION);//check real picture
-    //     $allowTypes=array('jpg','png','pdf','jpeg','gif');
-    //     if(in_array($allowTypes))
-    //     {
-    //         if(move_uploaded_file($_FILES["file"]["tmp_name"],$target_file))
-    //         {
-               
-    //         }
-    //         else {
-    //             echo "The file must be picture";
-    //         }
-    //     }
-    // } 
-    // $target_dir= "assets/img/";
-    // $target_file = $target_dir.basename($_FILES["file"]["name"]);
-    // move_uploaded_file($_FILES["file"]["tmp_name"],$target_file);
-
-
-    
+ini_set('display_errors',1);
+error_reporting(E_ALL);
 if(isset($_POST['BTNsubmit'])){
-   
-    
+    if(isset($_FILES['file2'])){
+        if($_FILES['file2']['error']>0)
+            {
+                echo "<script>alert('file của bạn bị lỗi rồi!!!')</script>";
+            }else{
+                move_uploaded_file($_FILES['file2']['tmp_name'],'/wordpress/wp-content/themes/ocenanwp/assets/img/'.basename($_FILES['file2']['name']));
+            
+
     $name = $_POST['fullName'];
     $age = $_POST['age'];
     $mail = $_POST['email'];
     $number = $_POST['phoneNumber'];
+    $meetingdate = $_POST['metting-date'];
     $timemeeting = $_POST['metting-time'];
-    $file = $_POST['file1'];
-
+    $file = $_FILES['file2'];
     $comment = $_POST['comment'];
     // print_r($name);
     // print_r($mail);
     // print_r($age);
     // print_r($number);
     // print_r($timemeeting);
-    print_r($file);
+    // print_r($meetingdate);
+    // print_r($file);
     // print_r($comment);
         global $wpdb;
 // print_r($name);
@@ -146,17 +101,20 @@ if(isset($_POST['BTNsubmit'])){
             'age'=>$age,
             'email'=>$mail,
             'phoneNumber'=>$number,
+            'meetingdate'=>$meetingdate,
             'meetingtime'=>$timemeeting,
             'file'=> $file,
             'comment'=>$comment
         )); 
- if($sql==1 || !empty($_FILES["files1"]["name"])){
+ if($sql==1 || !empty($_FILES["files2"]["name"])){
      echo "<script>alert('Bạn đã đăng ký thành công')</script>";
      header('Location: http://localhost/Royalfashion/wordpress/dangkythanhcong/');
  }
  else{
      echo   "<script>alert('Bạn chưa đăng ký thành công')</script>";
  }
+}
+}
 }
 ?>
 <?php

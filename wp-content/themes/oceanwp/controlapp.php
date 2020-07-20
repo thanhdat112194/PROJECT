@@ -10,26 +10,29 @@ if(isset($_POST['submit'] )){
         'date'=>$date
     ));
     if($sql==1 ){
-        echo "<script>alert('Bạn đã tạo thành công')</script>";
+        echo "<script>alert('Bạn đã tạo thành công')</script>"; 
+        header('Location: http://localhost/Royalfashion/wordpress/quan-ly-phong-van/');
     }
    }
    else{
     echo "<script>alert('Bạn chưa chọn thời gian')</script>";
+    
 }
    
-
-   
 }
-// <div class="form-group">
-// <label for="meeting-time">Chọn thời gian cuộc hẹn</label>
-
-// <select name="" id="">
-//     <?php
-  
-//     while( $result= $wpdb->get_results("Select*from setAppointment")){
-//             echo "<option value='$result->time'></option>";
-//         }
-//         ?>
-
+?>
+<?php 
+    if(isset($_POST['delete_date'])) {
+        global $wpdb;
+       $results = $db->id;
+        $sql = $wpdb->delete('setAppointment',
+        array(
+            'id'=>$results ));
+        if($sql==1){
+            echo "<script>alert('Bạn đã xóa thành công ')</script>";
+            header('Location: http://localhost/Royalfashion/wordpress/quan-ly-phong-van/');
+        }
+    }
 
 ?>
+

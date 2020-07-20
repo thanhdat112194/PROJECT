@@ -337,7 +337,8 @@ final class OCEANWP_Theme_Class {
 				)
 			)
 		);
-
+		// add_theme_support('custom-logo',array('headertext'=>array('site-title','site-description')));
+		
 		/*
 		 * Switch default core markup for search form, comment form, comments, galleries, captions and widgets
 		 * to output valid HTML5.
@@ -1060,6 +1061,6 @@ new OCEANWP_Theme_Class;
 // }
 // add_action('wp_enqueue_scripts','page_wp_enqueeu_style');
 function page_style(){
-	wp_enqueue_style('main',get_stylesheet_uri());
-}
-add_action('wp_enqueue_scripts','page_style');
+		wp_enqueue_style('main',get_stylesheet_uri());
+	}
+	add_action('wp_enqueue_scripts','page_style');
