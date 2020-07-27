@@ -13,6 +13,7 @@
  * @subpackage Twenty_Twenty
  * @since Twenty Twenty 1.0
  */
+ include("register-template.php");
 
 get_header();
 ?>
@@ -23,7 +24,7 @@ get_header();
 
 	$archive_title    = '';
 	$archive_subtitle = '';
-
+	define ('SITE_ROOT', realpath(dirname(__FILE__)));
 	if ( is_search() ) {
 		global $wp_query;
 
