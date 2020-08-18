@@ -16,7 +16,7 @@ border: 2px solid black;"    >
         <h1 style="font-size:30px;">Tạo ngày phỏng vấn</h1>
         <br>
         <input type="date" name="meeting-time" class="form-control" id="meeting-time"
-        min="2019-07-01" max="2019-07-30">
+        min="2019-08-01" max="2019-08-30">
         <br>
         <input type="submit" name="submit">
         </form>    
@@ -37,26 +37,22 @@ border: 2px solid black;"    >
             <?php
                 global $wpdb;
                 $count=1;
-                $result = $wpdb->get_results("Select*from setAppointment where id >=3");
+                $result = $wpdb->get_results("Select*from setappointment where id >=3");
                 foreach($result as $db){?>
             <tr>    
                     <td><?php echo $count;?></td> 
-                    <td><?php echo $db->date;?></td>
+                    <td name="date"><?php echo $db->date;?></td>
                     <td>
-                    
-<!--                     
-                    <input type="submit" name="delete_date" 
-                    value="<?php echo $db->id?>">DELETE</input> -->
-                    <button type="submit" name ="delete_date"
-                    value ="<?php  echo $db->id?>">Delete</button>
-                    
+                    <button type="submit" name="delete_date" value="<?php echo $db->id; ?>">DELETE</button>
                     </td>
             </tr>
             <?php $count++;
         
         }?>
+
         </table>
         </form>
+    
     </div>
 </div>
 <div class="container">

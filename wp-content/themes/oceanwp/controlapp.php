@@ -20,19 +20,17 @@ if(isset($_POST['submit'] )){
 }
    
 }
-?>
-<?php 
-    if(isset($_POST['delete_date'])) {
-        global $wpdb;
-       $results = $db->id;
-        $sql = $wpdb->delete('setAppointment',
-        array(
-            'id'=>$results ));
-        if($sql==1){
-            echo "<script>alert('Bạn đã xóa thành công ')</script>";
-            header('Location: http://localhost/Royalfashion/wordpress/quan-ly-phong-van/');
+if(isset($_POST['delete_date'])) {
+    global $wpdb;
+    // $results = $db->id;
+    $r= $_POST['delete_date'];
+//    echo "<script>alert('Bạn đã xóa thành công ')</script>";
+    $sql = $wpdb->delete('setappointment',array('id'=>$r ));
+    if($sql==1){
+        echo "<script>alert('Bạn đã xóa thành công ')</script>";
+        header('Location: http://localhost/Royalfashion/wordpress/quan-ly-phong-van/');
         }
-    }
 
+    }   
 ?>
 
